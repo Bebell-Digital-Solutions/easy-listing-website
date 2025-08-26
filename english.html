@@ -755,7 +755,30 @@
 }
 
 
-
+    .theme-image-container {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+    }
+    
+    #theme-image, #theme-image-hover {
+        transition: opacity 0.3s ease;
+    }
+    
+    #theme-image-hover {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+    }
+    
+    .theme-image-container:hover #theme-image {
+        opacity: 0;
+    }
+    
+    .theme-image-container:hover #theme-image-hover {
+        opacity: 1;
+    }
 
     </style>
 
@@ -782,8 +805,7 @@
 
             
             <div class="top-menu-actions">
-                <div class="fab" title="Spanish / Español 🇪🇸" onclick="window.open('https://bebell-digital-solutions.github.io/easy-listings-website/spanish
-', '_blank')"><i class="fa fa-globe"></i></div>
+                <div class="fab" title="Spanish / Español 🇪🇸" onclick="window.open('https://bebell-digital-solutions.github.io/easy-listings-website/spanish', '_blank')"><i class="fa fa-globe"></i></div>
                 <div class="fab" title="Support" onclick="window.open('mailto:hello@easylistings.website', '_blank')"><i class="fa fa-info-circle"></i></div>
                 <div class="fab" id="darkModeToggle" title="Toggle Theme" style="margin-right: 10px;"><i class="fas fa-moon"></i></div>
                 <a href="#pricing" class="primary-btn font-semibold px-4 py-2 rounded-lg text-sm hidden sm:block">Create Your Catalog</a>
