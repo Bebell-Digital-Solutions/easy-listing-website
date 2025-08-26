@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Easy Listings - Exhibe Tus Propiedades. Define Tu Marca.</title>
 
-
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -38,7 +37,7 @@
             --card-bg: #ffffff;
             --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
             --border-color: #e2e8f0;
-            --faq-bg: #2d3748;                 
+            --faq-bg: #2d3748;                      
         }
 
         .dark-mode {
@@ -49,7 +48,7 @@
             --card-bg: #2d3748; 
             --shadow: 0 4px 6px -1px rgba(0,0,0,0.4), 0 2px 4px -1px rgba(0,0,0,0.2);
             --border-color: #4a5568;
-            --faq-bg: #1a202c;   
+            --faq-bg: #1a202c;  
         }
 
         html { 
@@ -221,37 +220,18 @@
         }
 
 
-          /* Button Styles */
         .accent-btn {
-            background: linear-gradient(to right, #ff416c, #ff4b2b);
-            color: white;
-            border: none;
-            padding: 16px 32px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .accent-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-            background: linear-gradient(to right, #ff4b2b, #ff416c);
-        }
-        
-        .accent-btn:active {
-            transform: translateY(1px);
-        }
-        
+    background-color: #c71575;
+    color: white;
+    transition: all 0.3s ease;
+            
+}
 
-
-
-        
+.accent-btn:hover {
+    background-color: var(--primary);
+    transform: translateY(-3px); 
+            box-shadow: 0 10px 20px -10px var(--primary); 
+}
 
         .card {
             background-color: var(--card-bg); 
@@ -288,9 +268,9 @@
             height: 100%;
             display: flex;
             flex-direction: column;
-  justify-content: center;
- align-items: center;
-  margin-left: auto;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
        margin-right: auto;
         }
         
@@ -340,8 +320,8 @@
         .problem-card-content {
             color: var(--problem-card-text-light, var(--text-light));
             flex-grow: 1;
- align-items: center;
- align-items: center;
+    align-items: center;
+    align-items: center;
         }
 
 
@@ -362,60 +342,55 @@
         }
         
         /* Video Modal Styles */
-        .video-modal-overlay {
-            position: fixed; 
-            top: 0; 
-            left: 0; 
-            right: 0; 
-            bottom: 0; 
-            background: rgba(0,0,0,0.8);
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
+        .video-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.85);
             z-index: 2000;
-            opacity: 0; 
-            visibility: hidden; 
-            transition: opacity 0.3s ease, visibility 0.3s ease;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
-        
-        .video-modal-overlay.active { 
-            opacity: 1; 
-            visibility: visible; 
+
+        .video-modal.active {
+            display: flex;
+            opacity: 1;
         }
-        
-        .video-modal-content {
-            background: var(--card-bg); 
-            padding: 20px; 
-            border-radius: 16px; 
-            max-width: 900px;
-            width: 90%; 
-            position: relative; 
-            transform: scale(0.9); 
-            transition: transform 0.3s ease;
+
+        /* This targets the white card inside the modal */
+        #youtubeVideoModal.active > div {
+            transform: scale(1);
         }
-        
-        .video-modal-overlay.active .video-modal-content { 
-            transform: scale(1); 
-        }
-        
-        .video-modal-close {
-            position: absolute; 
-            top: -15px; 
-            right: -15px; 
-            width: 40px; 
+
+        .close-modal {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            width: 40px;
             height: 40px;
-            background: var(--primary); 
-            color: white; 
-            border: none; 
+            background: var(--primary);
+            color: white;
+            border: none;
             border-radius: 50%;
-            font-size: 20px; 
-            cursor: pointer; 
-            display: flex; 
-            align-items: center; 
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
             justify-content: center;
             box-shadow: var(--shadow);
+            z-index: 1010;
+            transition: transform 0.2s ease;
         }
         
+        .close-modal:hover {
+            transform: scale(1.1);
+        }
+
         .video-container { 
             position: relative; 
             padding-bottom: 56.25%; 
@@ -814,10 +789,10 @@
 </head>
 <body class="antialiased">
     
-  
-  
-  
-   <!-- Barra de Menú Superior -->
+    
+    
+    
+    <!-- Barra de Menú Superior -->
     <div class="top-menu-bar">
         <div class="top-menu-content">
             <div class="logo-container">
@@ -826,7 +801,7 @@
             </div>
             <div class="top-menu-actions">
 
-              
+                
                 <div class="fab" title="Inglés / English 🇺🇸" onclick="window.open('https://bebell-digital-solutions.github.io/easy-listings-website/english', '_blank')"><i class="fa fa-globe"></i></div>
                 <div class="fab" title="Soporte" onclick="window.open('mailto:hello@easylistings.website', '_blank')"><i class="fa fa-info-circle"></i></div>
                 <div class="fab" id="darkModeToggle" title="Cambiar Tema" style="margin-right: 10px;"><i class="fas fa-moon"></i></div>
@@ -834,6 +809,11 @@
             </div>
         </div>
     </div>
+
+
+
+
+
 
     <!-- Sección Hero -->
     <header class="header-banner" id="mainHeader">
@@ -851,6 +831,11 @@
             </div>
         </div>
     </header>
+
+
+
+
+
 
     <main>
         <!-- Contenedor Laptop de Demo en Vivo -->
@@ -875,7 +860,7 @@
     
 
         <!-- Versión Alternativa -->
-  
+    
             <div class="p-8 md:p-12 mb-0">
                 <div class="text-center mb-8">
                     <h3 class="text-2xl font-bold mb-2">Confiado por Líderes de la Industria</h3>
@@ -885,7 +870,7 @@
                 </div>
 
                 <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12">
-           
+            
 <!-- Google -->
                     <div class="logo-item">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" 
@@ -974,7 +959,7 @@
                     <h3 class="problem-card-title">Leads Perdidos ❌</h3>
                     <p class="problem-card-content">Las consultas se entierran en DMs y textos, sin llegar nunca a tu lista organizada.</p>
                 </div>
-           
+            
             </div>
 
             <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mt-14">
@@ -989,7 +974,7 @@
                         <polyline points="15 3 21 3 21 9"></polyline>
                         <line x1="10" y1="14" x2="21" y2="3"></line>
                     </svg>
-                    Verlo en Vivo en Cualquier Dispositivo
+                    Probarlo en Tiempo Real
                 </a>
             </div>
 
@@ -1001,7 +986,7 @@
 
 
 
-      
+    
 
         <!-- Sección de la Solución -->
         <section class="py-16 md:py-24">
@@ -1063,7 +1048,7 @@
             >
             <img 
                 id="theme-image-hover" 
-                src="https://bucket.mlcdn.com/a/3336/3336910/images/fea609fc3aa53f7ec653e2edbd0c37f7bffd2cd8.png" 
+                src="https://bucket.mlcdn.com/a/3336/3336910/images/734818c9d26321811ad9e8101208bb02c341c9bf.png" 
                 alt="Vista de un dispositivo móvil con exhibiendo Easy Listing en la pantalla" 
                 class="rounded-xl w-full theme-image"
             >
@@ -1072,7 +1057,13 @@
         </section>
 
 
-               <!-- Sección Cómo Funciona -->
+
+
+
+
+
+
+                <!-- Sección Cómo Funciona -->
         <section class="py-16 md:py-24 bg-[var(--card-bg)]">
             <div class="container mx-auto px-6 text-center">
                 <h2 class="text-3xl md:text-4xl font-bold mb-12 section-headline">Crea Tu <span class="hover-primary">Galería</span> En Tres Sencillos Pasos</h2>
@@ -1080,37 +1071,50 @@
                     <div class="flex flex-col items-center">
                         <div class="text-3xl font-bold text-[var(--primary)] border-2 border-[var(--primary)] rounded-full w-12 h-12 flex items-center justify-center mb-4">1</div>
                         <h3 class="text-2xl font-bold mb-2">🎨 Configura Tu Cuenta</h3>
-                        <p>Conecta tu Hoja de Cálculo y Personaliza Tu Galería con tu logo, colores de marca e información de contacto.</p>
+                        <p>Conecta tu Hoja de Cálculo de Google Sheets y Personaliza Tu Catálogo con tu logo, colores de marca e información de contacto.</p>
                     </div>
+
+
+
+
                     <div class="flex flex-col items-center">
                         <div class="text-3xl font-bold text-[var(--primary)] border-2 border-[var(--primary)] rounded-full w-12 h-12 flex items-center justify-center mb-4">2</div>
                         <h3 class="text-2xl font-bold mb-2">🖼️ Agrega Tus Listados</h3>
-                        <p>Agrega tus listados desde tu Base de Datos de Hojas de Cálculo de Google o crea nuevos directamente desde tu panel de Administración. Sube imágenes, configura detalles, etiquetas, categorías, CTAs y más.</p>
+                        <p>Agrega tus listados desde tu Base de Datos de Google Sheets o crea nuevos directamente desde tu catálogo con imágenes y detalles.</p>
                     </div>
+
+
+
+
                     <div class="flex flex-col items-center">
                         <div class="text-3xl font-bold text-[var(--primary)] border-2 border-[var(--primary)] rounded-full w-12 h-12 flex items-center justify-center mb-4">3</div>
                         <h3 class="text-2xl font-bold mb-2">💰 Comparte y Captura</h3>
-                        <p>Copia, Comparte y Promociona tu enlace único en plataformas de redes sociales. Captura Leads a través de nuestros formularios de leads integrados automáticamente, 24/7.</p>
+                        <p>Copia y Comparte tu enlace único. Promociona tu Catálogo en las redes sociales. Captura Leads de manera automatizada, las 24/7.</p>
                     </div>
                 </div>
             </div>
-                
-            <div class="flex flex-col sm:flex-row justify-center items-center mt-8 gap-4">
-                <button id="openVideoModal" class="accent-btn text-lg font-semibold px-8 py-4 rounded-lg m-8 transition w-full sm:w-auto flex items-center justify-center gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                        <polyline points="15 3 21 3 21 9"></polyline>
-                        <line x1="10" y1="14" x2="21" y2="3"></line>
-                    </svg>
-                    Ver Video Demostrativo
-                </button>
-            </div>
+
+
+
+
+    <!-- Your existing button -->
+    <div class="flex flex-col sm:flex-row justify-center items-center mt-8 gap-4">
+        <button id="openVideoModal" class="accent-btn text-lg font-semibold px-8 py-4 rounded-lg transition w-full sm:w-auto flex items-center justify-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                <polyline points="15 3 21 3 21 9"></polyline>
+                <line x1="10" y1="14" x2="21" y2="3"></line>
+            </svg>
+            Ver Video Demostrativo
+        </button>
+    </div>
+
         </section>
 
 
 
 
-   <!-- Sección de Características -->
+    <!-- Sección de Características -->
         <section id="features" class="py-16 md:py-24 relative">
             <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://bucket.mlcdn.com/a/3336/3336910/images/13fad95b7359bb8f0168963927fe445e15cc8f4e.png');"></div>
             <div class="container mx-auto px-6 relative">
@@ -1142,7 +1146,17 @@
 
 
 
-              <!-- Sección de Precios -->
+
+
+
+
+
+
+
+
+
+
+                <!-- Sección de Precios -->
         <section id="pricing" class="py-16 md:py-24 bg-[var(--card-bg)]">
             
             <div class="container mx-auto mt-5 px-6 text-center">
@@ -1318,7 +1332,7 @@
             <p class="testimonial-signature">Elizabeth Then, Especialista en Propiedades de Lujo</p>
 
             <!-- Widget de Comentarios de Facebook en la tarjeta -->
-            <div class="fb-comments-container mt-8 pt-6 border-t border-white/20">
+            <div class="fb-comments-container mt-8 pt-6 border-t border-white/20 ">
                 <h3 class="fb-comments-title">Comparte un comentario con la comunidad</h3>
                 <div class="fb-comments" data-href="https://easylistings.website" data-width="100%" data-numposts="5"></div>
             </div>
@@ -1383,18 +1397,24 @@
 </footer>
 
 <!-- Modal de Video -->
-<div id="videoModal" class="video-modal-overlay">
-    <div class="video-modal-content">
-        <button id="closeVideoModal" class="video-modal-close">&times;</button>
-        <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Reproductor de video de YouTube" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div class="video-modal" id="youtubeVideoModal">
+    <!-- White card frame -->
+    <div class="bg-[var(--card-bg)] p-4 sm:p-6 rounded-2xl shadow-2xl w-11/12 max-w-4xl relative transform scale-95 transition-transform duration-300">
+        <button class="close-modal" id="closeYoutubeModal">&times;</button>
+        <!-- Video wrapper -->
+        <div class="w-full rounded-xl overflow-hidden">
+            <div class="video-container">
+                <iframe id="youtubePlayer" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
         </div>
-        <a href="#pricing" class="primary-btn text-center font-bold py-3 px-6 rounded-lg w-full mt-6 block">Obtén Tu Oferta de Por Vida Ahora</a>
+        <!-- Button below video -->
+        <a href="#pricing" id="modalPricingButton" class="primary-btn text-center font-bold py-3 px-8 rounded-lg w-full mt-4 block transition transform hover:scale-105">
+            Crea Tu Catálogo Con Easy Listings
+        </a>
     </div>
 </div>
 
-
-  
+    
     <!-- Back to Top Button -->
     <button id="backToTopBtn">
         <span class="material-symbols-outlined">arrow_upward</span>
@@ -1406,198 +1426,200 @@
 
 
 
-  
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const backToTopBtn = document.getElementById('backToTopBtn');
+    
+   <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const backToTopBtn = document.getElementById('backToTopBtn');
+        
+        // Dark Mode Toggle
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const body = document.body;
+        const icon = darkModeToggle.querySelector('i');
+
+        // Theme configuration with image URLs
+        const themeImages = {
+            light: "https://cdn.shopify.com/s/files/1/0242/0175/6777/files/2d3748_3.gif?v=1756078940",
+            dark: "https://cdn.shopify.com/s/files/1/0242/0175/6777/files/2d3748_2.gif?v=1756076369"
+        };
+
+        // Function to update image based on current theme
+        function updateThemeImage() {
+            const imageElement = document.getElementById('theme-image');
+            const isDarkMode = body.classList.contains('dark-mode');
             
-            // Dark Mode Toggle
-            const darkModeToggle = document.getElementById('darkModeToggle');
-            const body = document.body;
-            const icon = darkModeToggle.querySelector('i');
+            // Update the image based on theme
+            imageElement.src = isDarkMode ? themeImages.dark : themeImages.light;
+        }
 
-            // Theme configuration with image URLs
-            const themeImages = {
-                light: "https://cdn.shopify.com/s/files/1/0242/0175/6777/files/2d3748_3.gif?v=1756078940",
-                dark: "https://cdn.shopify.com/s/files/1/0242/0175/6777/files/2d3748_2.gif?v=1756076369"
-            };
+        // Initialize theme based on localStorage
+        if (localStorage.getItem('theme') === 'dark') {
+            body.classList.add('dark-mode');
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+        }
 
-            // Function to update image based on current theme
-            function updateThemeImage() {
-                const imageElement = document.getElementById('theme-image');
-                const isDarkMode = body.classList.contains('dark-mode');
-                
-                // Update the image based on theme
-                imageElement.src = isDarkMode ? themeImages.dark : themeImages.light;
-            }
+        // Update the image on initial load
+        updateThemeImage();
 
-            // Initialize theme based on localStorage
-            if (localStorage.getItem('theme') === 'dark') {
-                body.classList.add('dark-mode');
+        darkModeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            if (body.classList.contains('dark-mode')) {
                 icon.classList.remove('fa-moon');
                 icon.classList.add('fa-sun');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                icon.classList.remove('fa-sun');
+                icon.classList.add('fa-moon');
+                localStorage.setItem('theme', 'light');
             }
-
-            // Update the image on initial load
+            
+            // Update the image when theme changes
             updateThemeImage();
+        });
 
-            darkModeToggle.addEventListener('click', () => {
-                body.classList.toggle('dark-mode');
-                if (body.classList.contains('dark-mode')) {
-                    icon.classList.remove('fa-moon');
-                    icon.classList.add('fa-sun');
-                    localStorage.setItem('theme', 'dark');
-                } else {
-                    icon.classList.remove('fa-sun');
-                    icon.classList.add('fa-moon');
-                    localStorage.setItem('theme', 'light');
-                }
+        // Hide/show top menu bar and back to top button on scroll
+        const topMenuBar = document.querySelector('.top-menu-bar');
+        let lastScrollTop = 0;
+        window.addEventListener('scroll', function() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                topMenuBar.classList.add('hidden');
+            } else {
+                topMenuBar.classList.remove('hidden');
+            }
+            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; 
+
+            // Back to top button logic
+            if (scrollTop > 300) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        });
+        
+        // Back to top click listener
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // FAQ toggle functionality
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        if (faqItems.length > 0) {
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
                 
-                // Update the image when theme changes
-                updateThemeImage();
-            });
-
-            // Hide/show top menu bar and back to top button on scroll
-            const topMenuBar = document.querySelector('.top-menu-bar');
-            let lastScrollTop = 0;
-            window.addEventListener('scroll', function() {
-                let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                if (scrollTop > lastScrollTop && scrollTop > 100) {
-                    topMenuBar.classList.add('hidden');
-                } else {
-                    topMenuBar.classList.remove('hidden');
-                }
-                lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; 
-
-                // Back to top button logic
-                if (scrollTop > 300) {
-                    backToTopBtn.classList.add('show');
-                } else {
-                    backToTopBtn.classList.remove('show');
-                }
-            });
-
-            // Video Modal Logic
-            const openModalBtn = document.getElementById('openVideoModal');
-            const closeModalBtn = document.getElementById('closeVideoModal');
-            const videoModal = document.getElementById('videoModal');
-
-            if (openModalBtn) {
-                openModalBtn.addEventListener('click', () => {
-                    videoModal.classList.add('active');
-                });
-            }
-
-
-  // Function to open modal
-        function openModal() {
-            videoModal.classList.add('active');
-            document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
-        }
-        
-        // Function to close modal
-        function closeModal() {
-            videoModal.classList.remove('active');
-            document.body.style.overflow = 'auto'; // Re-enable scrolling
-        }
-
-
-             // Event listeners
-        openModalBtn.addEventListener('click', openModal);
-        closeModalBtn.addEventListener('click', closeModal);
-        
-        // Close modal when clicking outside the content
-        videoModal.addEventListener('click', function(event) {
-            if (event.target === videoModal) {
-                closeModal();
-            }
-        });
-        
-        // Close modal with Escape key
-        document.addEventListener('keydown', function(event) {
-            if (event.key === 'Escape' && videoModal.classList.contains('active')) {
-                closeModal();
-            }
-        });
-
-            
-            const closeModal = () => {
-                videoModal.classList.remove('active');
-                // Stop the video from playing
-                const iframe = videoModal.querySelector('iframe');
-                const src = iframe.src;
-                iframe.src = src;
-            }
-
-            if (closeModalBtn) {
-                closeModalBtn.addEventListener('click', closeModal);
-            }
-            
-            if (videoModal) {
-                videoModal.addEventListener('click', (e) => {
-                    if (e.target === videoModal) {
-                        closeModal();
-                    }
-                });
-            }
-            
-            // Back to top click listener
-            backToTopBtn.addEventListener('click', () => {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-            
-            // FAQ toggle functionality
-            const faqItems = document.querySelectorAll('.faq-item');
-            
-            if (faqItems.length > 0) {
-                faqItems.forEach(item => {
-                    const question = item.querySelector('.faq-question');
-                    
-                    question.addEventListener('click', () => {
-                        // Close all other FAQ items
-                        faqItems.forEach(otherItem => {
-                            if (otherItem !== item) {
-                                otherItem.classList.remove('active');
-                            }
-                        });
-                        
-                        // Toggle current item
-                        item.classList.toggle('active');
+                question.addEventListener('click', () => {
+                    // Close all other FAQ items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
                     });
-                });
-            }
-            
-            // Function to update the card background based on theme
-            function updateCardBackground() {
-                const card = document.getElementById('whiteLabelCard');
-                if (!card) return;
-                
-                // Check if dark mode is active
-                const isDarkMode = document.body.classList.contains('dark-mode');
-                
-                // Set the background based on the theme
-                if (isDarkMode) {
-                    card.style.background = 'var(--dark-bg)';
-                } else {
-                    card.style.background = 'var(--light-bg)';
-                }
-            }
-
-            // Initialize when DOM is loaded
-            updateCardBackground();
-            
-            // Create a MutationObserver to watch for theme changes
-            const observer = new MutationObserver(function(mutations) {
-                mutations.forEach(function(mutation) {
-                    if (mutation.attributeName === 'class') {
-                        updateCardBackground();
-                    }
+                    
+                    // Toggle current item
+                    item.classList.toggle('active');
                 });
             });
+        }
+        
+        // Function to update the card background based on theme
+        function updateCardBackground() {
+            const card = document.getElementById('whiteLabelCard');
+            if (!card) return;
             
-            // Start observing the body for class changes
-            observer.observe(document.body, { attributes: true });
+            // Check if dark mode is active
+            const isDarkMode = document.body.classList.contains('dark-mode');
+            
+            // Set the background based on the theme
+            if (isDarkMode) {
+                card.style.background = 'var(--dark-bg)';
+            } else {
+                card.style.background = 'var(--light-bg)';
+            }
+        }
+
+        // Initialize when DOM is loaded
+        updateCardBackground();
+        
+        // Create a MutationObserver to watch for theme changes
+        const observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                if (mutation.attributeName === 'class') {
+                    updateCardBackground();
+                }
+            });
         });
-    </script>
+        
+        // Start observing the body for class changes
+        observer.observe(document.body, { attributes: true });
+
+        // YouTube Modal Functionality
+        const openModalBtns = document.querySelectorAll('#openVideoModal');
+        const youtubeVideoModal = document.getElementById('youtubeVideoModal');
+        const closeYoutubeModalBtn = document.getElementById('closeYoutubeModal');
+        const youtubePlayer = document.getElementById('youtubePlayer');
+        const modalPricingButton = document.getElementById('modalPricingButton');
+
+        // YouTube video ID (replace with your actual video ID)
+        const youtubeVideoId = 'dQw4w9WgXcQ'; // Example ID
+
+        // Open modal function
+        function openYoutubeModal() {
+            // Set the iframe source with autoplay
+            youtubePlayer.src = `https://www.youtube.com/embed/${youtubeVideoId}?autoplay=1`;
+            // Show the modal
+            youtubeVideoModal.classList.add('active');
+            // Prevent body scrolling
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close modal function
+        function closeYoutubeModal() {
+            // Hide the modal
+            youtubeVideoModal.classList.remove('active');
+            // Remove the iframe source to stop the video
+            youtubePlayer.src = '';
+            // Restore body scrolling
+            document.body.style.overflow = 'auto';
+        }
+
+        // Event listeners for all buttons with the same ID
+        openModalBtns.forEach(btn => {
+            btn.addEventListener('click', openYoutubeModal);
+        });
+        
+        if (closeYoutubeModalBtn) {
+            closeYoutubeModalBtn.addEventListener('click', closeYoutubeModal);
+        }
+
+        // Add listener for the new CTA button inside the modal
+        if (modalPricingButton) {
+            modalPricingButton.addEventListener('click', () => {
+                closeYoutubeModal();
+                // The link's default href="#pricing" will handle scrolling
+            });
+        }
+
+        // Close modal when clicking outside the video card
+        if (youtubeVideoModal) {
+            youtubeVideoModal.addEventListener('click', (e) => {
+                if (e.target === youtubeVideoModal) {
+                    closeYoutubeModal();
+                }
+            });
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && youtubeVideoModal.classList.contains('active')) {
+                closeYoutubeModal();
+            }
+        });
+    });
+</script>
+
+
+
 </body>
 </html>
