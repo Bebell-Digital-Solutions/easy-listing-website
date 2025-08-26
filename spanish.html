@@ -221,18 +221,37 @@
         }
 
 
+          /* Button Styles */
         .accent-btn {
-    background-color: #c71575;
-    color: white;
-    transition: all 0.3s ease;
-            
-}
+            background: linear-gradient(to right, #ff416c, #ff4b2b);
+            color: white;
+            border: none;
+            padding: 16px 32px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .accent-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(to right, #ff4b2b, #ff416c);
+        }
+        
+        .accent-btn:active {
+            transform: translateY(1px);
+        }
+        
 
-.accent-btn:hover {
-    background-color: var(--primary);
-    transform: translateY(-3px); 
-            box-shadow: 0 10px 20px -10px var(--primary); 
-}
+
+
+        
 
         .card {
             background-color: var(--card-bg); 
@@ -1077,7 +1096,7 @@
             </div>
                 
             <div class="flex flex-col sm:flex-row justify-center items-center mt-8 gap-4">
-                <button id="openVideoModal" class="accent-btn text-lg font-semibold px-8 py-4 rounded-lg transition w-full sm:w-auto flex items-center justify-center gap-2">
+                <button id="openVideoModal" class="accent-btn text-lg font-semibold px-8 py-4 rounded-lg m-8 transition w-full sm:w-auto flex items-center justify-center gap-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                         <polyline points="15 3 21 3 21 9"></polyline>
@@ -1119,16 +1138,6 @@
                 </div>
             </div>
         </section>
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1479,6 +1488,39 @@
                 });
             }
 
+
+  // Function to open modal
+        function openModal() {
+            videoModal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+        }
+        
+        // Function to close modal
+        function closeModal() {
+            videoModal.classList.remove('active');
+            document.body.style.overflow = 'auto'; // Re-enable scrolling
+        }
+
+
+             // Event listeners
+        openModalBtn.addEventListener('click', openModal);
+        closeModalBtn.addEventListener('click', closeModal);
+        
+        // Close modal when clicking outside the content
+        videoModal.addEventListener('click', function(event) {
+            if (event.target === videoModal) {
+                closeModal();
+            }
+        });
+        
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape' && videoModal.classList.contains('active')) {
+                closeModal();
+            }
+        });
+
+            
             const closeModal = () => {
                 videoModal.classList.remove('active');
                 // Stop the video from playing
