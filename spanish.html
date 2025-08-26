@@ -712,7 +712,30 @@
             }
         }
 
-
+    .theme-image-container {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+    }
+    
+    #theme-image, #theme-image-hover {
+        transition: opacity 0.3s ease;
+    }
+    
+    #theme-image-hover {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+    }
+    
+    .theme-image-container:hover #theme-image {
+        opacity: 0;
+    }
+    
+    .theme-image-container:hover #theme-image-hover {
+        opacity: 1;
+    }
 
 
 /* Facebook Comments Styling */
@@ -1012,15 +1035,20 @@
                 </div>
                 
                 <!-- Contenedor de imagen con cambio basado en tema -->
-                <div>
-                    <img 
-                        id="theme-image" 
-                        src="https://cdn.shopify.com/s/files/1/0242/0175/6777/files/2d3748_3.gif?v=1756078940" 
-                        alt="Una hermosa galería de propiedades en un dispositivo" 
-                        class="rounded-xl w-full theme-image"
-                        style="display: block;"
-                    >
-                </div>
+                 <div class="theme-image-container">
+            <img 
+                id="theme-image" 
+                src="https://cdn.shopify.com/s/files/1/0242/0175/6777/files/2d3748_3.gif?v=1756078940" 
+                alt="Una hermosa galería de propiedades en un dispositivo" 
+                class="rounded-xl w-full theme-image"
+            >
+            <img 
+                id="theme-image-hover" 
+                src="https://bucket.mlcdn.com/a/3336/3336910/images/05fdfc5d763278cfeb4b299b9f1142b8226c2b4d.gif" 
+                alt="Hover view of property gallery" 
+                class="rounded-xl w-full theme-image"
+            >
+        </div>
             </div>
         </section>
 
