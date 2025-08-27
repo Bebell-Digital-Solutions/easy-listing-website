@@ -364,7 +364,7 @@
         
         .section-headline { 
             color: var(--text); 
-            max-width: 980px; 
+            max-width: 1080px; 
             margin-left: auto; 
             margin-right: auto; 
             line-height: 1.1; 
@@ -627,7 +627,7 @@
         /* Active state when FAQ is open */
         .faq-item.active .faq-answer {
             display: block;
-            max-height: 200px;
+            max-height: 500px;
         }
 
         .faq-item.active .material-symbols-outlined {
@@ -667,10 +667,16 @@
 
         .testimonial-signature {
             font-family: 'Caveat', cursive;
-            font-size: 2rem;
+            font-size: 1.5rem;
             font-weight: bold;
             color: white;
         }
+
+
+
+
+
+
 
         @media (max-width: 768px) {
             .container { 
@@ -698,6 +704,12 @@
                 font-size: 1.125rem;
                 padding: 1.25rem;
             }
+
+   /* Active state when FAQ is open */
+        .faq-item.active .faq-answer {
+            display: block;
+            max-height: 500px;
+        }
             
             .top-menu-bar {
                 width: calc(100% - 1rem);
@@ -710,7 +722,27 @@
             .testimonial-signature {
                 padding: 10px;
             }
+
+
+ .bebell-footer p {
+            align-items: center;
+            text-align: center;
+            font-size: 10px;
+            line-height: 1.1;
+            margin: 0;
+            padding: 10px;
         }
+
+
+
+
+
+        }
+
+
+
+
+
 
         @media (max-width: 480px) {
             #appBrandNameDisplay {
@@ -733,6 +765,26 @@
             h1 {
                 font-size: 2rem;
             }
+
+
+ .bebell-footer p {
+            align-items: center;
+            text-align: center;
+            font-size: 10px;
+            line-height: 1.1;
+            margin: 0;
+            padding: 10px;
+        }
+
+
+
+
+   /* Active state when FAQ is open */
+        .faq-item.active .faq-answer {
+            display: block;
+            max-height: 500px;
+        }
+
 
            .testimonial-signature {
                 font-size: 1.75rem;
@@ -770,10 +822,12 @@
 .fb-comments-container {
     margin-top: 2rem;
     padding: 1rem;
-    background-color: white;
+    background-color: white !IMPORTANT;
     border-radius: 12px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
+
 
 .fb-comments-title {
     color: #1a202c;
@@ -783,18 +837,26 @@
     text-align: center;
 }
 
+
+
 /* Dark mode support */
+
+
 .dark-mode .fb-comments-container {
-    background-color: #f8fafc;
+    background-color: white;
 }
 
 .dark-mode .fb-comments-title {
     color: #1a202c;
 }
 
+
+
 /* Responsive adjustments for Facebook comments */
 @media (max-width: 768px) {
-    .fb-comments-title {
+    
+
+.fb-comments-title {
         font-size: 1.25rem;
         
     }
